@@ -6,7 +6,8 @@ import com.example.demo.entity.Role;
 import com.example.demo.entity.User;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
-import com.example.demo.service.UserService;
+
+import com.example.demo.service.UserServiceImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -52,7 +53,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> findAllUsers() {
-        List<User> users = userRepository.findAll();
+        List<User> users = (List<User>) userRepository.findAll();
         return users.stream()
                 .map((user) -> mapToUserDto(user))
                 .collect(Collectors.toList());

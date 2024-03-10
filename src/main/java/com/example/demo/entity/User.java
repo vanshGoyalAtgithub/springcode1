@@ -1,22 +1,16 @@
 package com.example.demo.entity;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.List;
 import javax.persistence.*;
 import java.util.ArrayList;
 
 // Add the lombok dependency
 import lombok.*;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
-@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     private static final long serialVersionUID = 1l;
@@ -24,6 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private long id;
+    
 
     @Column(nullable=false)
     private String name;
